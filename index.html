@@ -11,19 +11,35 @@
         background-color: black;
         color: white;
 	      font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
       }
       p
       {
+        margin-left: auto;
+        margin-right: auto;
         width: 635px;
         font-size:18px;
       }
+      img
+      {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 700;
+      }
       ul
       {
+        width:300px;
+        margin:0 auto;
+        text-align:left;
         font-size:18px;
       }
+
+
       h1
       {
         color: #90EE90;
+        text-align: center;
       }
       a
       {
@@ -37,7 +53,9 @@
   </head>
 
   <body>
+    <
     <img src = "liam.neeson.taken.cb.jpeg" >
+    <!-- <h1 id="hello">Hello</h1> -->
     <h1>About me:</h1>
     <p>
       I'm a student at <span class="highlight">New York University,</span> majoring in <span class="highlight">
@@ -67,7 +85,7 @@
 
 
 <!--    <img src = "615979479_o.jpg" height = "450" > -->
-<img src = "DaenerysSunglasses.jpg" width = "600" >
+<img src = "DaenerysSunglasses.jpg" width = "600"  >
 
     <h1>What I can do:</h1>
       <ul type="circle">
@@ -322,6 +340,18 @@
       </ul>
 
 
+
+
   </body>
 
+  <script>
+    var yourName = prompt("yo what's your name?");
+    alert("nice to meet you "+yourName+"!! this is my portfolio website :D \n -Mike Saint-Antoine")
+    // if(yourName != null)
+    // {
+    //   document.getElementById("hello").innerHTML = "hello "+yourName+"!!";
+    // }
+    var random = Math.floor(Math.random() * (10 - 1)) + 1;
+    document.write(random);
+  </script>
 </html>
