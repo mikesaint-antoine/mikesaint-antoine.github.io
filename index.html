@@ -355,15 +355,22 @@
     // // {
     // //   document.getElementById("hello").innerHTML = "hello "+yourName+"!!";
     // // }
-    var random = Math.floor(Math.random() * (3 - 1)) + 1;
+    var random = Math.floor(Math.random() * (10 - 1)) + 1;
     document.write(random);
 
 
-    joke1 = "What do you call a cheap circumcision?\n........a rip-off";
-    joke2 = "What do you call an elephant that doesn't matter?\n..........an irrelephant";
-    joke3 = "What do you call an alligator wearing a vest?\n.........an investigator";
+    joke1 = "What do you call a cheap circumcision?<br />........a rip-off";
+    joke2 = "What do you call an elephant that doesn't matter?<br />..........an irrelephant";
+    joke3 = "What do you call an alligator wearing a vest?<br />.........an investigator";
+    joke4 = "What did O say to Q?<br />.......\"put that thing back in your pants!\"";
+    joke5 = "What do you call a large pile of cats?<br />.......a meowntain";
+    joke6 = "What do you call a cow without any legs?<br />......ground beef";
+    joke7 = "What's green, fuzzy, and if it falls out of a tree it'll kill you?<br />......a pool table";
+    joke8 = "What's red a looks like a bucket?<br />.......a red bucket";
+    joke9 = "What's brown and sticky?<br />......a stick";
+    joke10 = "What do you call a fake noodle?<br />.....an impasta";
 
-    jokes = [joke1,joke2,joke3];
+    jokes = [joke1,joke2,joke3,joke4,joke5,joke6,joke7,joke8,joke9,joke10];
 
     document.getElementById("joke").innerHTML = jokes[random];
 
