@@ -319,9 +319,13 @@
       <p>
         woah, you made it this far...... nice. here's a joke for you:<br />
         <br />
+      </p>
+      <p id="joke">
         <span class="highlight">what do you call a cheap circumcision?<br />
         .......a rip-off.<br /></span>
         <br />
+      </p>
+      <p>
         lol
       </p>
 
@@ -351,7 +355,18 @@
     // {
     //   document.getElementById("hello").innerHTML = "hello "+yourName+"!!";
     // }
-    var random = Math.floor(Math.random() * (10 - 1)) + 1;
+    var random = Math.floor(Math.random() * (3 - 1)) + 1;
     document.write(random);
+
+
+    joke1 = "What do you call a cheap circumcision?\n........a rip-off";
+    joke2 = "What do you call an elephant that doesn't matter?\n..........an irrelephant";
+    joke3 = "What do you call an alligator wearing a vest?\n.........an investigator";
+
+    jokes = [joke1,joke2,joke3];
+
+    document.getElementById("joke").innerHTML = jokes[random];
+
+
   </script>
 </html>
