@@ -52,7 +52,7 @@
     </style>
   </head>
 
-  <body>
+  <body id="body" onclick="changeBackground();">
     <
     <img src = "liam.neeson.taken.cb.jpeg" >
     <!-- <h1 id="hello">Hello</h1> -->
@@ -338,23 +338,87 @@
         <li>Email: msa406@nyu.edu</li>
         <li>Phone: 484-802-4622</li>
         <!-- <li><a href="https://github.com/mikesaint-antoine">Github</a></li> -->
-        <li><a href="https://www.linkedin.com/profile/view?id=AAIAABnSyi8BNdg0SGuRPAl9fL3JmLaHPtctz5g&trk=nav_responsive_tab_profile">LinkedIn</a></li>
-        <li><a href="https://www.facebook.com/mike.saintantoine">Facebook</a></li>
+        <li><a id = "link" href="https://www.linkedin.com/profile/view?id=AAIAABnSyi8BNdg0SGuRPAl9fL3JmLaHPtctz5g&trk=nav_responsive_tab_profile">LinkedIn</a></li>
+        <li><a id = "link2" href="https://www.facebook.com/mike.saintantoine">Facebook</a></li>
 
       </ul>
 
+      <br />
+
+
+      <img src = "1970-Ford-Mustang-Boss-302-For-Sale-Headlights-Orange-940x636.jpg" width="600" >
 
 
 
   </body>
 
   <script>
+
+    // colors = ['#000000','#010101','#020202','#020000','#020000','#000000',]
+
+    cc = 0;
+    function changeBackground()
+    {
+      if (cc%2 == 0)
+      {
+        document.body.style.background = '#FFFFFF';
+
+        elem = document.getElementById("body");
+        elem.style.color = '#000000';
+
+        link = document.getElementById("link");
+        link.style.color = '#000000';
+
+        link2 = document.getElementById("link2");
+        link2.style.color = '#000000';
+        // text = document.getElementsByClassName("highlight");
+        // text.style.color = '#8B008B';
+        cc++;
+      }
+      else
+      {
+        document.body.style.background = '#000000';
+        elem = document.getElementById("body");
+        elem.style.color = '#FFFFFF';
+
+        link = document.getElementById("link");
+        link.style.color = '#FFFFFF';
+
+        link2 = document.getElementById("link2");
+        link2.style.color = '#FFFFFF';
+
+        // text = document.getElementsByClassName("highlight");
+        // text.style.color = '#8B008B';
+
+        cc++;
+
+      }
+    }
+    // function changeHighlight()
+    // {
+    //   if (cc%2 == 0)
+    //   {
+    //     document.body.style.background = '#FFFFFF';
+    //     elem = document.getElementById("body");
+    //     elem.style.color = '#000000';
+    //     cc++;
+    //   }
+    //   else
+    //   {
+    //     document.body.style.background = '#000000';
+    //     elem = document.getElementById("body");
+    //     elem.style.color = '#90EE90';
+    //     cc++;
+    //
+    //   }
+    // }
     // var yourName = prompt("yo what's your name?");
-    // alert("nice to meet you "+yourName+"!! this is my portfolio website :D \n -Mike Saint-Antoine")
-    // // if(yourName != null)
-    // // {
-    // //   document.getElementById("hello").innerHTML = "hello "+yourName+"!!";
-    // // }
+    // if(yourName =="mike")
+    // {
+    //   alert("nice to meet you "+yourName+"!! this is my portfolio website :D \n -Mike Saint-Antoine")
+    //   changeBackground();
+    // }
+
     var random = Math.floor(Math.random() * (10 - 1)) + 1;
     document.write(random);
 
@@ -369,6 +433,7 @@
     joke8 = "What's red a looks like a bucket?<br />.......a red bucket";
     joke9 = "What's brown and sticky?<br />......a stick";
     joke10 = "What do you call a fake noodle?<br />.....an impasta";
+
 
     jokes = [joke1,joke2,joke3,joke4,joke5,joke6,joke7,joke8,joke9,joke10];
 
