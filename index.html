@@ -4,7 +4,8 @@
 <!doctype html>
 <html>
   <head>
-    <title>Mike's Portfolio</title>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.js"></script>
+    <title>Mike's Website</title>
     <style>
       body
       {
@@ -49,11 +50,15 @@
       {
         color: #90EE90;
       }
+      .game
+      {
+        text-align: center;
+      }
     </style>
   </head>
 
   <body id="body" onclick="changeBackground();">
-    <
+
     <img src = "liam.neeson.taken.cb.jpeg" >
     <!-- <h1 id="hello">Hello</h1> -->
     <h1>About me:</h1>
@@ -345,6 +350,7 @@
 
       <br />
 
+      <div class ="game" id='myContainer'></div>
 
       <img src = "1970-Ford-Mustang-Boss-302-For-Sale-Headlights-Orange-940x636.jpg" width="600" >
 
@@ -352,9 +358,17 @@
 
   </body>
 
+
+
   <script>
 
-    // colors = ['#000000','#010101','#020202','#020000','#020000','#000000',]
+    colors = ['#000000','#080808','#101010','#181818','#202020',
+    '#282828','#303030','#383838','#404040','#484848',
+    '#505050','#585858','#606060','#686868','#707070',
+    '#787878','#808080','#888888','#909090','#989898',
+    '#A0A0A0','#A8A8A8','#B0B0B0','#B8B8B8','#C0C0C0',
+    '#C8C8C8','#D0D0D0','#D8D8D8','#E0E0E0','#E8E8E8',
+    '#F0F0F0','#F8F8F8','#FFFFFF']
 
     cc = 0;
     function changeBackground()
@@ -362,6 +376,9 @@
       if (cc%2 == 0)
       {
         document.body.style.background = '#FFFFFF';
+
+
+
 
         elem = document.getElementById("body");
         elem.style.color = '#000000';
@@ -377,9 +394,12 @@
       }
       else
       {
-        document.body.style.background = '#000000';
+        document.body.style.background = colors[0];
         elem = document.getElementById("body");
         elem.style.color = '#FFFFFF';
+
+
+
 
         link = document.getElementById("link");
         link.style.color = '#FFFFFF';
@@ -423,6 +443,7 @@
     document.write(random);
 
 
+
     joke1 = "What do you call a cheap circumcision?<br />........a rip-off";
     joke2 = "What do you call an elephant that doesn't matter?<br />..........an irrelephant";
     joke3 = "What do you call an alligator wearing a vest?<br />.........an investigator";
@@ -439,6 +460,30 @@
 
     document.getElementById("joke").innerHTML = jokes[random];
 
+    document.getElementById("joke").style.color = '#90EE90';
 
+
+
+
+  </script>
+
+  <script>
+    var x = 0;
+
+
+
+    function setup()
+    {
+      var myCanvas = createCanvas(600, 400);
+      myCanvas.parent('myContainer');      background(100);
+      line(15, 25, 70, 90);
+
+    }
+
+    function draw()
+    {
+      ellipse(x, height/2, 20, 20);
+      x = x + 1;
+    }
   </script>
 </html>
