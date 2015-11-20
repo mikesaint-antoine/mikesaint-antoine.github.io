@@ -34,10 +34,10 @@ var block =
 var ball = 
 {
   x:100, 
-  y:100,
+  y:30,
   diameter:30,
   dx:.5,
-  dy:2,
+  dy:.1,
   
   display:function()
   {
@@ -67,15 +67,15 @@ var ball =
     }
     else
     {
-      this.dy = this.dy + 0.07 ;
+      this.dy = this.dy + 0.35 ;
     };
     
     if (this.y >= canvasHeight + 200)
     {
       this.x = 100;
-      this.y = -100;
+      this.y = 30;
       this.dx = .5;
-      this.dy = 2;
+      this.dy = .1;
     }
     
     
