@@ -19,11 +19,11 @@ var block =
   {
     if (keyIsDown(LEFT_ARROW))
     {
-      this.x = this.x -3;
+      this.x = this.x -7;
     }
     else if (keyIsDown(RIGHT_ARROW))
     {
-      this.x = this.x + 3;
+      this.x = this.x + 7;
     };
   }
   
@@ -62,7 +62,7 @@ var ball =
     
     if (this.y + this.diameter/2 >= block.y && ((this.x + this.diameter/2 - block.x <= block.w&& this.x + this.diameter/2 >= block.x)||(this.x - this.diameter/2 - block.x <= block.w&& this.x - this.diameter/2 >= block.x))) 
     {
-      this.dx = (Math.random() * 2)-1;
+      this.dx = (Math.random() * 3)-1.5;
       this.dy = -this.dy;
     }
     else
