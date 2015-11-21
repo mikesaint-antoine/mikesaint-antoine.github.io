@@ -87,7 +87,7 @@
 
       if (this.y + this.diameter/2 >= block.y && this.y <= canvasHeight && ((this.x + this.diameter/2 - block.x <= block.w&& this.x + this.diameter/2 >= block.x)||(this.x - this.diameter/2 - block.x <= block.w&& this.x - this.diameter/2 >= block.x)))
       {
-        this.dx = random(-3,3);
+        this.dx = random(-4,4);
         this.dy = -this.dy;
         score++;
         if (score > highScore)
@@ -128,7 +128,7 @@
   {
     var myCanvas = createCanvas(canvasWidth, canvasHeight);
     myCanvas.parent('myContainer');
-    background(100);  
+    background(100);
     line(15, 25, 70, 90);
   }
 
