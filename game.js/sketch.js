@@ -1,9 +1,15 @@
 canvasWidth = 600;
 canvasHeight = 400;
 
+score = 0;
+highScore = 0;
+newHighScore = false;
+menu = true;
+
+
 var block = 
 {
-  x:0,
+  x:10,
   y:canvasHeight-30,
   w:150,
   h:28,
@@ -19,11 +25,11 @@ var block =
   {
     if (keyIsDown(LEFT_ARROW))
     {
-      this.x = this.x -7;
+      this.x = this.x -9;
     }
     else if (keyIsDown(RIGHT_ARROW))
     {
-      this.x = this.x + 7;
+      this.x = this.x + 9;
     };
   }
   
@@ -60,10 +66,16 @@ var ball =
     this.x = this.x + this.dx; 
     
     
-    if (this.y + this.diameter/2 >= block.y && ((this.x + this.diameter/2 - block.x <= block.w&& this.x + this.diameter/2 >= block.x)||(this.x - this.diameter/2 - block.x <= block.w&& this.x - this.diameter/2 >= block.x))) 
+    if (this.y + this.diameter/2 >= block.y && this.y <= canvasHeight && ((this.x + this.diameter/2 - block.x <= block.w&& this.x + this.diameter/2 >= block.x)||(this.x - this.diameter/2 - block.x <= block.w&& this.x - this.diameter/2 >= block.x))) 
     {
       this.dx = (Math.random() * 3)-1.5;
       this.dy = -this.dy;
+      score++;
+      if (score > highScore)
+      {
+        highScore = score;
+        newHighScore = true;
+      }
     }
     else
     {
@@ -76,6 +88,13 @@ var ball =
       this.y = 30;
       this.dx = .5;
       this.dy = .1;
+      score = 0;
+      if(newHighScore)
+      {
+        alert("New high score!!");
+      }
+      newHighScore = false;
+      menu = true;
     }
     
     
@@ -98,13 +117,35 @@ function setup()
 
 function draw() 
 {
-  background(100);  
-  // ellipse(circle.x, circle.y, circle.diameter, circle.diameter);
-  // circle.x = circle.x + 1;
-  ball.display();
-  ball.move();
-  block.display();
-  block.move();
+  background(100);
+  textSize(25);
+  fill(255);
+  text("score: " + score,10,30);
+  text("high score: " + highScore,430,30);
+  
+  if (menu)
+  {
+  textSize(80);
+  text("Time-Waster",80,170);
+  textSize(20);
+  text("Try to keep the balls in the air.",160,220);
+  text("Use the left and right arrow keys to move.",120,245);
+  text("Press any key to begin.",190,270);
+  if (keyIsPressed)
+  {
+    menu = false;
+  }
+ 
+  }
+
+  if (!menu)
+  {
+    ball.display();
+    ball.move();
+    block.display();
+    block.move();
+    
+  }
   
 }
 
