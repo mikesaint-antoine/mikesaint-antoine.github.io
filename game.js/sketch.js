@@ -1,6 +1,9 @@
 canvasWidth = 600;
 canvasHeight = 400;
 
+colorOfStuff = '#000000'
+backgroundColor = '#90EE90'
+
 score = 0;
 highScore = 0;
 newHighScore = false;
@@ -17,8 +20,8 @@ var block =
   display:function()
   {
     stroke(255);
-    strokeWeight(1);
-    fill(255);
+    strokeWeight(0);
+    fill(colorOfStuff);
     rect(this.x, this.y, this.w, this.h);
   },
   move:function()
@@ -49,7 +52,7 @@ var ball =
   {
     stroke(255);
     strokeWeight(0);
-    fill(255);
+    fill(colorOfStuff);
     ellipse(this.x,this.y,this.diameter,this.diameter);
   },
   move:function()
@@ -116,9 +119,9 @@ function setup()
 
 function draw() 
 {
-  background('#AAAAAA');
+  background(backgroundColor);
   textSize(25);
-  fill(255);
+  fill(colorOfStuff);
   text("score: " + score,10,30);
   text("high score: " + highScore,430,30);
   
