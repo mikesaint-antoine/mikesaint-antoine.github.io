@@ -132,7 +132,7 @@ function draw()
   textSize(20);
   text("Try to keep the balls in the air.",160,220);
   text("Use the left and right arrow keys to move.",120,245);
-  text("Press any key to begin.",190,270);
+  text("Press any key to begin!",190,270);
   if (keyIsPressed)
   {
     menu = false;
