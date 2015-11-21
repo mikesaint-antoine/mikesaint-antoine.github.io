@@ -9,7 +9,7 @@ menu = true;
 
 var block = 
 {
-  x:10,
+  x:300,
   y:canvasHeight-30,
   w:150,
   h:28,
@@ -39,7 +39,7 @@ var block =
 
 var ball = 
 {
-  x:100, 
+  x:300, 
   y:30,
   diameter:30,
   dx:.5,
@@ -68,7 +68,7 @@ var ball =
     
     if (this.y + this.diameter/2 >= block.y && this.y <= canvasHeight && ((this.x + this.diameter/2 - block.x <= block.w&& this.x + this.diameter/2 >= block.x)||(this.x - this.diameter/2 - block.x <= block.w&& this.x - this.diameter/2 >= block.x))) 
     {
-      this.dx = (Math.random() * 3)-1.5;
+      this.dx = random(-3,3);
       this.dy = -this.dy;
       score++;
       if (score > highScore)
@@ -84,15 +84,15 @@ var ball =
     
     if (this.y >= canvasHeight + 200)
     {
-      this.x = 100;
+      this.x = 300;
       this.y = 30;
       this.dx = .5;
       this.dy = .1;
       score = 0;
-      if(newHighScore)
-      {
-        alert("New high score!!");
-      }
+      // if(newHighScore)
+      // {
+        
+      // }
       newHighScore = false;
       menu = true;
     }
@@ -102,7 +102,6 @@ var ball =
   }
   
 };
-
 
 
 
@@ -117,7 +116,7 @@ function setup()
 
 function draw() 
 {
-  background(100);
+  background('#AAAAAA');
   textSize(25);
   fill(255);
   text("score: " + score,10,30);
