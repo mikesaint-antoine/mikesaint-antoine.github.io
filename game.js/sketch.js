@@ -116,7 +116,8 @@ function setup()
 
 function draw() 
 {
-  background('#AAAAAA');
+  // background('#AAAAAA');
+  background('#90EE90');
   textSize(25);
   fill(255);
   text("score: " + score,10,30);
