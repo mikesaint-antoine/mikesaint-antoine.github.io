@@ -2,34 +2,25 @@
 <!-- Mike Saint-Antoine -->
 
 <!doctype html>
-
 <html>
   <head>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.js"></script>
     <title>Mike's Website</title>
-
     <style>
-
-      .fade
-      {
-        outline: 0px;
-        left: 0px;
-        top: 0px;
-        bottom: 0px;
-        right: 0px;
-        width: 100%;
-        height: 100%;
-        position:absolute;
-        z-index: -1;
-
-      }
-
       body
       {
-        font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        background-color: black;
         color: white;
-      }
+	      font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 
+      }
+      p
+      {
+        margin-left: auto;
+        margin-right: auto;
+        width: 635px;
+        font-size:18px;
+      }
       img
       {
         display: block;
@@ -37,54 +28,39 @@
         margin-right: auto;
         width: 700;
       }
-
-      p
-      {
-        z-index = 1;
-        margin-left: auto;
-        margin-right: auto;
-        width: 635px;
-        font-size:18px;
-
-      }
-
-      h1
-      {
-        color: #90EE90;
-        text-align: center;
-      }
-
       ul
       {
         width:300px;
         margin:0 auto;
         text-align:left;
         font-size:18px;
+      }
 
+
+      h1
+      {
+        color: #90EE90;
+        text-align: center;
       }
       a
       {
         color: #FFFFFF;
       }
-
       .highlight
       {
         color: #90EE90;
       }
-
-
-
+      .game
+      {
+        text-align: center;
+      }
     </style>
-
   </head>
 
-
-  <body id="body">
-
-    <div class ="fade" id='myContainer2'></div>
+  <body id="body" onclick="changeBackground();">
 
     <img src = "liam.neeson.taken.cb.jpeg" >
-
+    <!-- <h1 id="hello">Hello</h1> -->
     <h1>About me:</h1>
     <p>
       I'm a student at <span class="highlight">New York University,</span> majoring in <span class="highlight">
@@ -100,13 +76,21 @@
       For startups, I'll consider taking equity instead of cash.
     </p>
 
+    <!-- <p>
+      I'm not sure what I want to do yet in terms of an actual long-term career and I'm definitely
+      open to working in any field, but right now I'm especially interested in jobs related to
+      technology, national security, humanitarian work, federal law enforcement, non-profits,
+      computer programming (any industry), or startups/entrepreneurship (any industry).
+    </p> -->
+
     <p>
       This website is meant to be a portfolio of my computer programming work, but I'm also open to non-technical
       work, so feel free to contact me about that too.
     </p>
 
 
-    <img src = "DaenerysSunglasses.jpg" width = "600"  >
+<!--    <img src = "615979479_o.jpg" height = "450" > -->
+<img src = "DaenerysSunglasses.jpg" width = "600"  >
 
     <h1>What I can do:</h1>
       <ul type="circle">
@@ -223,7 +207,6 @@
 
       <img src = "MI0002897665.jpg" width="400" >
 
-
       <h1>Work experience:</h1>
 
 
@@ -338,8 +321,6 @@
       <img src = "Vladimir-Putin-Daily-Kos-Credit.jpg" width="600" >
 
 
-
-
       <p>
         woah, you made it this far...... nice. here's a joke for you:<br />
         <br />
@@ -355,7 +336,6 @@
 
       <img src = "C-3PO-See-Threepio_68fe125c.jpeg" width="650" >
 
-
       <h1>"Mike you're so cool and awesome, <br />how do I contact you about a job?"</h1>
       <h1>Easy! Here's my contact info:</h1>
 
@@ -370,122 +350,136 @@
 
       <br />
 
+      <div class ="game" id='myContainer'></div>
 
+      <img src = "1970-Ford-Mustang-Boss-302-For-Sale-Headlights-Orange-940x636.jpg" width="600" >
+
+      <a href="gamepage.html">Game Page</a>
 
 
   </body>
 
 
 
-
-
-
-
   <script>
 
-  backgroundColor = 0;
-  black = true;
-  click = false;
-  function mouseClicked()
-  {
 
-      click = true;
 
-  }
-
-  function setup()
-  {
-    var myCanvas = createCanvas(displayWidth*1.2, displayHeight*7.8);
-    myCanvas.parent('myContainer2');
-    background(backgroundColor);
-  }
-
-  function draw() {
-    background(backgroundColor);
-
-    if (click && black && backgroundColor <=254)
+    cc = 0;
+    function changeBackground()
     {
-      elem = document.getElementById("body");
-      elem.style.color = '#000000';
-
-      link = document.getElementById("link");
-      link.style.color = '#000000';
-
-      link2 = document.getElementById("link2");
-      link2.style.color = '#000000';
+      if (cc%2 == 0)
+      {
+        document.body.style.background = '#FFFFFF';
 
 
 
 
+        elem = document.getElementById("body");
+        elem.style.color = '#000000';
 
-      backgroundColor +=2;
+        link = document.getElementById("link");
+        link.style.color = '#000000';
+
+        link2 = document.getElementById("link2");
+        link2.style.color = '#000000';
+        // text = document.getElementsByClassName("highlight");
+        // text.style.color = '#8B008B';
+        cc++;
+      }
+      else
+      {
+        document.body.style.background = colors[0];
+        elem = document.getElementById("body");
+        elem.style.color = '#FFFFFF';
 
 
 
+
+        link = document.getElementById("link");
+        link.style.color = '#FFFFFF';
+
+        link2 = document.getElementById("link2");
+        link2.style.color = '#FFFFFF';
+
+        // text = document.getElementsByClassName("highlight");
+        // text.style.color = '#8B008B';
+
+        cc++;
+
+      }
     }
-    else if (click && !black)
-    {
-      elem = document.getElementById("body");
-      elem.style.color = '#FFFFFF';
+    // function changeHighlight()
+    // {
+    //   if (cc%2 == 0)
+    //   {
+    //     document.body.style.background = '#FFFFFF';
+    //     elem = document.getElementById("body");
+    //     elem.style.color = '#000000';
+    //     cc++;
+    //   }
+    //   else
+    //   {
+    //     document.body.style.background = '#000000';
+    //     elem = document.getElementById("body");
+    //     elem.style.color = '#90EE90';
+    //     cc++;
+    //
+    //   }
+    // }
+    // var yourName = prompt("yo what's your name?");
+    // if(yourName =="mike")
+    // {
+    //   alert("nice to meet you "+yourName+"!! this is my portfolio website :D \n -Mike Saint-Antoine")
+    //   changeBackground();
+    // }
 
-      link = document.getElementById("link");
-      link.style.color = '#FFFFFF';
-
-      link2 = document.getElementById("link2");
-      link2.style.color = '#FFFFFF';
-
-
-
-
-
-      backgroundColor -= 2;
-    }
-    if (backgroundColor >= 255)
-    {
-      click = false;
-      black = false;
-    }
-    else if (backgroundColor == 0)
-    {
-      click = false;
-      black = true;
-    }
-
-
+    var random = Math.floor(Math.random() * (10 - 1)) + 1;
+    document.write(random);
 
 
-  }
+
+    joke1 = "What do you call a cheap circumcision?<br />........a rip-off";
+    joke2 = "What do you call an elephant that doesn't matter?<br />..........an irrelephant";
+    joke3 = "What do you call an alligator wearing a vest?<br />.........an investigator";
+    joke4 = "What did O say to Q?<br />.......\"put that thing back in your pants!\"";
+    joke5 = "What do you call a large pile of cats?<br />.......a meowntain";
+    joke6 = "What do you call a cow without any legs?<br />......ground beef";
+    joke7 = "What's green, fuzzy, and if it falls out of a tree it'll kill you?<br />......a pool table";
+    joke8 = "What's red a looks like a bucket?<br />.......a red bucket";
+    joke9 = "What's brown and sticky?<br />......a stick";
+    joke10 = "What do you call a fake noodle?<br />.....an impasta";
+
+
+    jokes = [joke1,joke2,joke3,joke4,joke5,joke6,joke7,joke8,joke9,joke10];
+
+    document.getElementById("joke").innerHTML = jokes[random];
+
+    document.getElementById("joke").style.color = '#90EE90';
+
 
 
 
   </script>
 
   <script>
-
-  var random = Math.floor(Math.random() * (10 - 1)) + 1;
-
+    var x = 0;
 
 
-  joke1 = "What do you call a cheap circumcision?<br />........a rip-off";
-  joke2 = "What do you call an elephant that doesn't matter?<br />..........an irrelephant";
-  joke3 = "What do you call an alligator wearing a vest?<br />.........an investigator";
-  joke4 = "What did O say to Q?<br />.......\"put that thing back in your pants!\"";
-  joke5 = "What do you call a large pile of cats?<br />.......a meowntain";
-  joke6 = "What do you call a cow without any legs?<br />......ground beef";
-  joke7 = "What's green, fuzzy, and if it falls out of a tree it'll kill you?<br />......a pool table";
-  joke8 = "What's red a looks like a bucket?<br />.......a red bucket";
-  joke9 = "What's brown and sticky?<br />......a stick";
-  joke10 = "What do you call a fake noodle?<br />.....an impasta";
 
+    function setup()
+    {
+      var myCanvas = createCanvas(600, 400);
+      myCanvas.parent('myContainer');
+      background(100);
+      line(15, 25, 70, 90);
 
-  jokes = [joke1,joke2,joke3,joke4,joke5,joke6,joke7,joke8,joke9,joke10];
+    }
 
-  document.getElementById("joke").innerHTML = jokes[random];
-
-  document.getElementById("joke").style.color = '#90EE90';
-
+    function draw()
+    {
+      ellipse(x, height/2, 20, 20);
+      x = x + 1;
+    }
   </script>
-
-
-
 </html>
