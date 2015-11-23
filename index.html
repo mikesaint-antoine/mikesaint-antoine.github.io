@@ -383,6 +383,8 @@
 
   <script>
 
+
+
   backgroundColor = 0;
   black = true;
   click = false;
@@ -392,6 +394,67 @@
       click = true;
 
   }
+
+
+
+    var link =
+    {
+      down:true,
+      linkY:100,
+
+
+      display:function()
+      {
+        textSize(25);
+        fill('#90EE90');
+        stroke('#90EE90')
+        text("naked pics link",displayWidth-200,this.linkY);
+        line(displayWidth-200,this.linkY+2,displayWidth-37,this.linkY+2);
+
+
+
+
+      },
+      move:function()
+      {
+
+        if (this.linkY >= 450)
+        {
+          this.down = false;
+        }
+        else if (this.linkY <=99)
+        {
+          this.down = true;
+        }
+
+        if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && this.down)
+        {
+          this.linkY += 14;
+        }
+
+        else if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && !this.down)
+        {
+          this.linkY -= 14;
+        }
+
+
+
+
+      }
+
+
+    };
+
+
+
+
+
+
+
+
+
+
+
 
   function setup()
   {
@@ -405,39 +468,10 @@
 
     if (click && black && backgroundColor <=254)
     {
-      elem = document.getElementById("body");
-      elem.style.color = '#000000';
-
-      link = document.getElementById("link");
-      link.style.color = '#000000';
-
-      link2 = document.getElementById("link2");
-      link2.style.color = '#000000';
-
-
-
-
-
       backgroundColor +=2;
-
-
-
     }
     else if (click && !black)
     {
-      elem = document.getElementById("body");
-      elem.style.color = '#FFFFFF';
-
-      link = document.getElementById("link");
-      link.style.color = '#FFFFFF';
-
-      link2 = document.getElementById("link2");
-      link2.style.color = '#FFFFFF';
-
-
-
-
-
       backgroundColor -= 2;
     }
     if (backgroundColor >= 255)
@@ -451,12 +485,14 @@
       black = true;
     }
 
+    link.display()
+    link.move()
+
+
 
 
 
   }
-
-
 
   </script>
 

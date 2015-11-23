@@ -14,29 +14,66 @@ function mouseClicked()
 
   var link =
   {
-    linkX:700,
+    down:true,
     linkY:100,
 
 
     display:function()
     {
-      textSize(32);    
+      textSize(25);    
       fill('#90EE90');
-      text("Time-Waster",this.linkX,this.linkY);
+      stroke('#90EE90')
+      text("naked pics link",displayWidth-200,this.linkY);
+      line(displayWidth-200,this.linkY+2,displayWidth-37,this.linkY+2);
+
+
+
 
     },
     move:function()
     {
+      
+      if (this.linkY >= 450)
+      {
+        this.down = false;
+      }
+      else if (this.linkY <=99)
+      {
+        this.down = true;
+      }
+      
+      if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && this.down)
+      {
+        this.linkY += 14;
+      }
+      
+      else if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && !this.down)
+      {
+        this.linkY -= 14;
+      }
+      
+      
+      
 
     }
 
 
   };
+  
+
+
+
+
+
+
+
+
+
 
 
 function setup()
 {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(displayWidth*1.2, displayHeight*7.8);
   background(backgroundColor);
 }
 
@@ -63,7 +100,9 @@ function draw() {
   }
   
   link.display()
+  link.move()
   
+
 
 
   
