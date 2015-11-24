@@ -24,19 +24,31 @@
 
       }
 
-      /*.nav
+      .nav
       {
 
         list-style: none;
         text-align: center;
         padding: 20px 20px 20px 20px;
         width: 500px;
-      }*/
+        color: '#90EE90';
 
-      /*.nav > li
+      }
+
+      .nav > ul
+      {
+
+        color: '#90EE90';
+
+
+      }
+
+      .nav > li
       {
         display: inline-block;
         padding-right: 25px;
+        color: '#90EE90';
+
 
       }
 
@@ -49,7 +61,7 @@
       .nav:hover
       {
         color: '#90EE90';
-      }*/
+      }
 
       body
       {
@@ -110,20 +122,20 @@
 
     <div class ="fade" id='myContainer2'></div>
 
-    <!-- <ul class="nav">
-      <li><a href="#About me">About Me</a></li>
-      <li><a href="#">Skills</a></li>
-      <li><a href="#">Experience</a></li>
-      <li><a href="#">Contact</a></li>
+    <ul class="nav">
+      <li><a href="#About me"><span class = "highlight">About Me</span></a></li>
+      <li><a href="#Skills"><span class = "highlight">Skills</span></a></li>
+      <li><a href="#Experience"><span class = "highlight">Experience</span></a></li>
+      <li><a href="#Contact"><span class = "highlight">Contact</span></a></li>
 
 
 
-    </ul> -->
+    </ul>
 
 
     <img src = "liam.neeson.taken.cb.jpeg" >
 
-    <h1>About me:</h1>
+    <a name = "About me"><h1>About me:</h1></a>
     <p>
       I'm a student at <span class="highlight">New York University,</span> majoring in <span class="highlight">
       Economics</span> with a minor in <span class="highlight">Computer Science.</span> Some of my hobbies include
@@ -146,7 +158,7 @@
 
     <img src = "DaenerysSunglasses.jpg" width = "600"  >
 
-    <h1>What I can do:</h1>
+    <a name = "Skills"><h1>What I can do:</h1></a>
       <ul type="circle">
         <li>Technical Skills
           <ul type="circle">
@@ -262,7 +274,7 @@
       <img src = "MI0002897665.jpg" width="400" >
 
 
-      <h1>Work experience:</h1>
+      <a name = "Experience"><h1>Work experience:</h1></a>
 
 
 
@@ -394,7 +406,7 @@
       <img src = "C-3PO-See-Threepio_68fe125c.jpeg" width="650" >
 
 
-      <h1>"Mike you're so cool and awesome, <br />how do I contact you about a job?"</h1>
+      <a name = "Contact"><h1>"Mike you're so cool and awesome, <br />how do I contact you about a job?"</h1></a>
       <h1>Easy! Here's my contact info:</h1>
 
       <ul type="circle">
@@ -423,10 +435,10 @@
  backgroundColor = 0;
  black = true;
  click = false;
- function mouseClicked()
- {
-     click = true;
- }
+ // function mouseClicked()
+ // {
+ //     click = true;
+ // }
 
  var piclink =
   {
@@ -486,6 +498,17 @@
    background(backgroundColor);
  }
  function draw() {
+   if (second()==30)
+   {
+     click = true;
+   }
+
+   if (second()==0)
+   {
+     click = true;
+   }
+
+
    background(backgroundColor);
    if (click && black && backgroundColor <=254)
    {

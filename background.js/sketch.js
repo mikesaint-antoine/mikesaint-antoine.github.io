@@ -3,12 +3,21 @@
 backgroundColor = 0;
 black = true;
 click = false;
+
+
 function mouseClicked()
 {
 
     click = true;
 
 }
+
+// if (second == 0 || second == 20 || second == 40)
+// {
+//   click = true;
+// }
+
+
 
 
 
@@ -79,6 +88,11 @@ function setup()
 
 function draw() {
   background(backgroundColor);
+  
+  if (second()==15)
+  {
+    click = true;
+  }
   
   if (click && black && backgroundColor <=254)
   {
