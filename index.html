@@ -24,6 +24,33 @@
 
       }
 
+      /*.nav
+      {
+
+        list-style: none;
+        text-align: center;
+        padding: 20px 20px 20px 20px;
+        width: 500px;
+      }*/
+
+      /*.nav > li
+      {
+        display: inline-block;
+        padding-right: 25px;
+
+      }
+
+      .nav > li > a
+      {
+        text-decoration: none;
+        color: '#90EE90';
+      }
+
+      .nav:hover
+      {
+        color: '#90EE90';
+      }*/
+
       body
       {
         font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -82,6 +109,17 @@
   <body id="body">
 
     <div class ="fade" id='myContainer2'></div>
+
+    <!-- <ul class="nav">
+      <li><a href="#About me">About Me</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Experience</a></li>
+      <li><a href="#">Contact</a></li>
+
+
+
+    </ul> -->
+
 
     <img src = "liam.neeson.taken.cb.jpeg" >
 
@@ -382,120 +420,108 @@
 
 
   <script>
+ backgroundColor = 0;
+ black = true;
+ click = false;
+ function mouseClicked()
+ {
+     click = true;
+ }
 
-
-
-  backgroundColor = 0;
-  black = true;
-  click = false;
-  function mouseClicked()
+ var piclink =
   {
-
-      click = true;
-
-  }
+    down:true,
+    linkY:100,
 
 
-
-    var link =
+    display:function()
     {
-      down:true,
-      linkY:100,
+      textSize(25);
+      fill('#90EE90');
+      stroke('#90EE90')
+      text("naked pics link",displayWidth-200,this.linkY);
+      line(displayWidth-200,this.linkY+2,displayWidth-37,this.linkY+2);
 
 
-      display:function()
+
+
+    },
+    move:function()
+    {
+
+      if (this.linkY >= 450)
       {
-        textSize(25);
-        fill('#90EE90');
-        stroke('#90EE90')
-        text("naked pics link",displayWidth-200,this.linkY);
-        line(displayWidth-200,this.linkY+2,displayWidth-37,this.linkY+2);
-
-
-
-
-      },
-      move:function()
+        this.down = false;
+      }
+      else if (this.linkY <=99)
       {
+        this.down = true;
+      }
 
-        if (this.linkY >= 450)
-        {
-          this.down = false;
-        }
-        else if (this.linkY <=99)
-        {
-          this.down = true;
-        }
+      if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && this.down)
+      {
+        this.linkY += 14;
+      }
 
-        if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && this.down)
-        {
-          this.linkY += 14;
-        }
-
-        else if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && !this.down)
-        {
-          this.linkY -= 14;
-        }
-
-
-
-
+      else if (mouseX > displayWidth-250 && abs(mouseY - this.linkY) < 100 && !this.down)
+      {
+        this.linkY -= 14;
       }
 
 
-    };
 
 
-
-
-
-
-
-
-
-
-
-
-  function setup()
-  {
-    var myCanvas = createCanvas(displayWidth*1.2, displayHeight*7.8);
-    myCanvas.parent('myContainer2');
-    background(backgroundColor);
-  }
-
-  function draw() {
-    background(backgroundColor);
-
-    if (click && black && backgroundColor <=254)
-    {
-      backgroundColor +=2;
-    }
-    else if (click && !black)
-    {
-      backgroundColor -= 2;
-    }
-    if (backgroundColor >= 255)
-    {
-      click = false;
-      black = false;
-    }
-    else if (backgroundColor == 0)
-    {
-      click = false;
-      black = true;
     }
 
-    link.display()
-    link.move()
+
+  };
 
 
 
 
+ function setup()
+ {
+   var myCanvas = createCanvas(displayWidth*1.2, displayHeight*7.8);
+   myCanvas.parent('myContainer2');
+   background(backgroundColor);
+ }
+ function draw() {
+   background(backgroundColor);
+   if (click && black && backgroundColor <=254)
+   {
+     elem = document.getElementById("body");
+     elem.style.color = '#000000';
+     link = document.getElementById("link");
+     link.style.color = '#000000';
+     link2 = document.getElementById("link2");
+     link2.style.color = '#000000';
+     backgroundColor +=2;
+   }
+   else if (click && !black)
+   {
+     elem = document.getElementById("body");
+     elem.style.color = '#FFFFFF';
+     link = document.getElementById("link");
+     link.style.color = '#FFFFFF';
+     link2 = document.getElementById("link2");
+     link2.style.color = '#FFFFFF';
+     backgroundColor -= 2;
+   }
+   if (backgroundColor >= 255)
+   {
+     click = false;
+     black = false;
+   }
+   else if (backgroundColor == 0)
+   {
+     click = false;
+     black = true;
+   }
 
-  }
-
-  </script>
-
+   piclink.display()
+   piclink.move()
+ }
+ </script>
   <script>
 
   var random = Math.floor(Math.random() * (10 - 1)) + 1;
