@@ -169,6 +169,9 @@
 
     <img src = "DaenerysSunglasses.jpg" width = "600"  >
 
+    <br />
+    <br />
+
     <a name = "Skills"><h1>What I can do:</h1></a>
       <ul type="circle">
         <li>Technical Skills
@@ -280,9 +283,13 @@
 
         </li>
       </ul>
+      <br />
 
+      <br />
 
       <img src = "MI0002897665.jpg" width="400" >
+      <br />
+      <br />
 
 
       <a name = "Experience"><h1>Work experience:</h1></a>
@@ -396,8 +403,11 @@
         Skills learned: <span class="highlight">Customer service, manual labor, working hard without complaining</span>
       </p>
 
+      <br />
+
       <img src = "Vladimir-Putin-Daily-Kos-Credit.jpg" width="600" >
 
+      <br />
 
 
 
@@ -414,8 +424,11 @@
         lol
       </p>
 
+      <br />
+
       <img src = "C-3PO-See-Threepio_68fe125c.jpeg" width="650" >
 
+      <br />
 
       <a name = "Contact"><h1>"Mike you're so cool and awesome, <br />how do I contact you about a job?"</h1></a>
       <h1>Easy! Here's my contact info:</h1>
@@ -504,53 +517,57 @@
 
  function setup()
  {
-   var myCanvas = createCanvas(displayWidth*1.2, displayHeight*7.8);
+   var myCanvas = createCanvas(displayWidth*1.15, displayHeight*7.9);
    myCanvas.parent('myContainer2');
    background(backgroundColor);
  }
  function draw() {
-   if (second()==30)
-   {
-     click = true;
-   }
-
-   if (second()==0)
-   {
-     click = true;
-   }
-
 
    background(backgroundColor);
-   if (click && black && backgroundColor <=254)
-   {
-     elem = document.getElementById("body");
-     elem.style.color = '#000000';
-     link = document.getElementById("link");
-     link.style.color = '#000000';
-     link2 = document.getElementById("link2");
-     link2.style.color = '#000000';
-     backgroundColor +=2;
-   }
-   else if (click && !black)
-   {
-     elem = document.getElementById("body");
-     elem.style.color = '#FFFFFF';
-     link = document.getElementById("link");
-     link.style.color = '#FFFFFF';
-     link2 = document.getElementById("link2");
-     link2.style.color = '#FFFFFF';
-     backgroundColor -= 2;
-   }
-   if (backgroundColor >= 255)
-   {
-     click = false;
-     black = false;
-   }
-   else if (backgroundColor == 0)
-   {
-     click = false;
-     black = true;
-   }
+
+
+   // commented out background fade
+  //  if (second()==30)
+  //  {
+  //    click = true;
+  //  }
+   //
+  //  if (second()==0)
+  //  {
+  //    click = true;
+  //  }
+
+
+  //  if (click && black && backgroundColor <=254)
+  //  {
+  //    elem = document.getElementById("body");
+  //    elem.style.color = '#000000';
+  //    link = document.getElementById("link");
+  //    link.style.color = '#000000';
+  //    link2 = document.getElementById("link2");
+  //    link2.style.color = '#000000';
+  //    backgroundColor +=2;
+  //  }
+  //  else if (click && !black)
+  //  {
+  //    elem = document.getElementById("body");
+  //    elem.style.color = '#FFFFFF';
+  //    link = document.getElementById("link");
+  //    link.style.color = '#FFFFFF';
+  //    link2 = document.getElementById("link2");
+  //    link2.style.color = '#FFFFFF';
+  //    backgroundColor -= 2;
+  //  }
+  //  if (backgroundColor >= 255)
+  //  {
+  //    click = false;
+  //    black = false;
+  //  }
+  //  else if (backgroundColor == 0)
+  //  {
+  //    click = false;
+  //    black = true;
+  //  }
 
    piclink.display()
    piclink.move()

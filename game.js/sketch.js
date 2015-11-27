@@ -1,5 +1,7 @@
   canvasWidth = 600;
-  canvasHeight = 400;
+  canvasHeight = 500;
+  
+  // originally 600x400
 
   colorOfStuff = '#000000'
   backgroundColor = '#90EE90'
@@ -28,11 +30,11 @@
     {
       if (keyIsDown(LEFT_ARROW))
       {
-        this.x = this.x -9;
+        this.x = this.x - 10;
       }
       else if (keyIsDown(RIGHT_ARROW))
       {
-        this.x = this.x + 9;
+        this.x = this.x + 10;
       };
     }
 
@@ -40,22 +42,22 @@
   };
 
 
-  var ball =
+  function Ball()
   {
-    x:300,
-    y:30,
-    diameter:30,
-    dx:.5,
-    dy:.1,
+    this.x = 300
+    this.y = 30;
+    this.diameter = 30;
+    this.dx = .5;
+    this.dy = .1;
 
-    display:function()
+    this.display = function()
     {
       stroke(255);
       strokeWeight(0);
       fill(colorOfStuff);
       ellipse(this.x,this.y,this.diameter,this.diameter);
-    },
-    move:function()
+    }
+    this.move = function()
     {
       if (this.x + this.diameter/2 >= canvasWidth)
       {
@@ -83,10 +85,14 @@
       else
       {
         this.dy = this.dy + 0.35 ;
+        // original speed 0.35
       };
-
-      if (this.y >= canvasHeight + 200)
-      {
+    this.y = this.y + this.dy;
+    }
+    
+    
+    this.reset = function()
+    {
         this.x = 300;
         this.y = 30;
         this.dx = .5;
@@ -98,10 +104,7 @@
         // }
         newHighScore = false;
         menu = true;
-      }
-
-
-      this.y = this.y + this.dy;
+      
     }
 
   };
@@ -112,6 +115,8 @@
   {
     createCanvas(canvasWidth, canvasHeight);
     background(backgroundColor);
+    ball = new Ball();
+    ball2 = new Ball();
   }
 
 
@@ -145,6 +150,19 @@
       ball.move();
       block.display();
       block.move();
+      
+      if (score>5)
+      {
+        ball2.display();
+        ball2.move();
+      }
+      
+      if (ball.y > canvasHeight + 200 || ball2.y > canvasHeight + 200)
+      {
+        ball.reset();
+        ball2.reset();
+        
+      }
 
     }
 
