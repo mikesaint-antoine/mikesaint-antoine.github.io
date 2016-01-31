@@ -127,7 +127,7 @@
     textSize(25);
     fill(colorOfStuff);
     text("score: " + score,10,30);
-    text("high score: " + highScore,430,30);
+    text("high score: " + highScore,428,30);
 
     if (menu)
     {
