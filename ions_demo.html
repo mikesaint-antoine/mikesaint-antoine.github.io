@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.19/p5.js"></script>
+
+    <style>
+    body
+    {
+      background-color: white;
+      color: white;
+
+    }
+      .game
+      {
+        text-align: center;
+      }
+
+
+
+    </style>
+  </head>
+
+
+
+
+
+  <body>
+    <br />
+    <br />
+
+
+    <div class ="game" id='myContainer'></div>
+
+
+  </body>
+
+
+
+
+  <script>
+  canvasWidth = 600;
+ canvasHeight = 500;
+
+ // originally 600x400
+
+ colorOfStuff = '#000000'
+ backgroundColor = '#EEEEEE'
+
+
+ relax = true;
+ first = true;
+ var second_count = 0;
+ var current_second = 0;
+ var random_int = 0;
+
+ var date_start = new Date();
+ var milli = date_start.getTime();
+ var count = 0;
+
+
+
+ function setup()
+ {
+   var myCanvas = createCanvas(canvasWidth, canvasHeight);
+   myCanvas.parent('myContainer');
+   background(backgroundColor);
+
+
+
+ }
+
+
+ function draw()
+ {
+   background(backgroundColor);
+   textSize(25);
+   fill(colorOfStuff);
+
+
+
+
+   // scale
+   stroke(153);
+   line(100, 100, 100, 300);
+
+
+   textSize(20)
+   text("1.0",50,100);
+   text("0.0",50,300);
+   text("0.5",50,200);
+
+
+
+
+  // count seconds
+
+  if (current_second != second())
+  {
+      second_count = second_count+1;
+      current_second = second();
+
+  }
+
+
+
+  // get random number
+  var d = new Date();
+  var n = d.getTime();
+
+  if (n >= milli+1500)
+  {
+    milli = d.getTime();
+    random_int = Math.round(Math.random()*1000000)/1000000;
+
+    if (count==16)
+    {
+      count = 1;
+      relax = !relax;
+    }
+    else
+    {
+      count++;
+    }
+
+  }
+
+
+
+
+
+
+    // switch variable
+    // if (second_count%24==0 && first)
+    // {
+    //   relax = !relax;
+    //   first = false;
+    // }
+    //
+    // if (second_count%24!=0 && !first)
+    // {
+    //   first = true;
+    // }
+
+
+
+
+  // relax screen
+   if (relax)
+   {
+   textSize(80);
+   text("Relax",250,200);
+   var s = second();
+
+   textSize(20)
+   text("1.5 second count: \n" + count, 20, canvasHeight-50);
+
+
+   }
+
+
+
+  // don't relax screen
+   if (!relax)
+   {
+     textSize(80);
+     text(random_int,250,200);
+     var s = second();
+
+
+     textSize(20)
+     text("1.5 second count: \n" + count, 20, canvasHeight-50);
+
+     ellipse(100,300-(200*random_int),10,10);
+
+   }
+
+ }
+  </script>
+
+
+
+
+</html>
